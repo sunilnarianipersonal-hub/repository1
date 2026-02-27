@@ -1,64 +1,47 @@
-# React + TypeScript + Vite
+# React / TypeScript CRUD Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Small sample CRUD frontend built with Vite, React, TypeScript, and MUI.
 
-Currently, two official plugins are available:
+## Features
+- Fetches users from JSONPlaceholder (mock REST API)
+- Displays data using MUI DataGrid (sorting, pagination, quick filter)
+- Local Add / Edit / Delete operations (state-only; JSONPlaceholder is read-only)
+- Responsive layout for interview submission
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Local development
+1. Install dependencies:
 
-## React Compiler
+```powershell
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Run dev server:
 
-## Expanding the ESLint configuration
+```powershell
+npm run dev
+```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. Build production bundle:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    # React / TypeScript Frontend for REST API CRUD
+```powershell
+npm run build
+```
 
-    Small sample CRUD frontend built with Vite, React, TypeScript and MUI.
+## Docker
+### Build image
 
-    ## Features
-    - Fetches users from JSONPlaceholder (mock REST API)
-    - Displays data using MUI DataGrid (sorting, pagination, quick filter)
-    - Local Add / Edit / Delete operations (state-only; JSONPlaceholder is read-only)
-    - Responsive, lightly styled layout for interview submission
+```powershell
+docker build -t crud-frontend:latest .
+```
 
-    ## Quick start
-    1. Install dependencies
+### Run container
 
-    ```powershell
-    npm install
-    ```
+```powershell
+docker run --rm -p 8080:80 crud-frontend:latest
+```
 
-    2. Run development server (HMR)
+Open: http://localhost:8080
 
-    ```powershell
-    npm run dev
-    ```
-
-    Open http://localhost:5173 (Vite will show the actual URL).
-
-    3. Build production bundle
-
-    ```powershell
-    npm run build
-    ```
-
-    Preview production build
-
-    ```powershell
-    npm run preview
-    ```
-
-    ## Notes
-    - The app uses JSONPlaceholder (`https://jsonplaceholder.typicode.com/users`) to load initial user data. Add/Edit/Delete are local operations only and do not persist to the remote API.
-    - If you export or zip this project for submission, include the `src/`, `public/`, `package.json`, and this `README.md`. Exclude `node_modules/`.
-
-    ## Contact
-    If you need me to make additional polish or prepare a zipped artifact for submission, tell me which format you prefer (source or production build).
+## Notes
+- Initial data source: `https://jsonplaceholder.typicode.com/users`
+- Add/Edit/Delete are local UI operations and do not persist remotely.
