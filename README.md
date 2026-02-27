@@ -42,6 +42,21 @@ docker run --rm -p 8080:80 crud-frontend:latest
 
 Open: http://localhost:8080
 
+### Run from GitHub Container Registry (GHCR)
+
+After the GitHub Actions workflow succeeds, you can pull and run the published image directly:
+
+```powershell
+docker pull ghcr.io/sunilnarianipersonal-hub/repository1:latest
+docker run --rm -p 8080:80 ghcr.io/sunilnarianipersonal-hub/repository1:latest
+```
+
+If the package is private, authenticate first:
+
+```powershell
+echo <YOUR_GITHUB_PAT> | docker login ghcr.io -u sunilnarianipersonal-hub --password-stdin
+```
+
 ## Notes
 - Initial data source: `https://jsonplaceholder.typicode.com/users`
 - Add/Edit/Delete are local UI operations and do not persist remotely.
